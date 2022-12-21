@@ -21,10 +21,14 @@
       </form>
       <section>
         <h1>글목록</h1>
-
         <ul>
+          <!-- 0번 글부터 업데이트됨  -->
           <% for(let i = 0; i < posts.length; i++) { %>
-          <li><%= posts[i] %></li>
+          <li><%= i %>번 글 : <%= posts[i] %></li>
+          <% } %>
+          <!-- 마지막 글부터 업데이트 -->
+          <% for(let i = posts.length; i >= 0; i--) { %>
+          <li><%= i %>번 글 : <%= posts[i] %></li>
           <% } %>
         </ul>
       </section>
