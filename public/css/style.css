@@ -13,3 +13,13 @@ a {
 input {
   padding: 5px;
 }
+
+ul {
+  list-style: none;
+}
+
+.post-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}

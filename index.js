@@ -47,6 +47,16 @@ app.post("/create", function (req, res) {
   res.redirect("/");
 });
 
+// 글 삭제 요청.  form의 action 값과 일치하는 라우팅을 만들었다. /delete/:id 를 사용하면 :id 자리에 들어오는 숫자 값이 req.params.id의 값으로 전달된다.
+app.post("/delete/:id", function (req, res) {
+  const id = req.params.id;
+  console.log(id);
+  // 이제 posts 배열의 특정 배열의 값을 삭제한다. 그 다음에  fs.writeFileSync("postDB.json", JSON.stringify(posts));  와   res.redirect("/");  를 함수에 적용하여 DB 문서에도 삭제된 posts 정보를 반영하면 된다.
+  posts.splice(id, 1);
+  fs.writeFileSync("postDB.json", JSON.stringify(posts));
+  res.redirect("/");
+});
+
 const port = 3001;
 app.listen(port, () => {
   console.log(`server running at ${port}`);
