@@ -42,7 +42,9 @@ app.post("/create", function (req, res) {
   // posts 배열에 글 추가
   posts.push(글);
   console.log(posts);
-  // DB file에 글 저장
+  // posts 배열 데이터를 DB file에 저장
+  fs.writeFileSync("postDB.json", JSON.stringify(posts));
+  res.redirect("/");
 });
 
 const port = 3001;
